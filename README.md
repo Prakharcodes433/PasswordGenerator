@@ -2,7 +2,7 @@
 
 A sleek, dark-themed random password generator built with focus on security and minimalist design. 
 
-##  Live Demo
+##  Live 
 **[Click here to view the live site on Vercel](https://password-generator-nine-indol.vercel.app/)**
 
 ##  Features
