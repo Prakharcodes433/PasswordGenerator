@@ -18,7 +18,7 @@ A sleek, dark-themed random password generator built with focus on security and 
 
 ##  Developer
 **Prakhar Patel** Feel free to connect with me:
-- [GitHub](https://github.com/yourusername)
+- [GitHub](https://github.com/prakharcodes433)
 - [Instagram](https://instagram.com/yourusername)
 - [Reddit](https://reddit.com/user/yourusername)
 
