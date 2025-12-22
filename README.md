@@ -20,5 +20,5 @@ A sleek, dark-themed random password generator built with focus on security and 
 **Prakhar Patel** Feel free to connect with me:
 - [GitHub](https://github.com/prakharcodes433)
 - [Instagram](https://instagram.com/prakharr._patel)
-- [Reddit](https://reddit.com/user/yourusername)
+- [Reddit](https://reddit.com/user/prakharpatel669)
 
