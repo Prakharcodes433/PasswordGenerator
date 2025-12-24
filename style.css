@@ -6,6 +6,10 @@ body {
   padding-bottom: 50px; 
 }
 
+.social-links #github:hover{
+  color: #FFFFFF;
+}
+
 .social-links {
   position: absolute;
   top: 30px;
