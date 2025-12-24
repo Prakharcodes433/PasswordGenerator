@@ -14,6 +14,11 @@ body {
   color: #C13584;
 }
 
+.social-links #reddit:hover{
+  color:#FF4500;
+}
+
+
 .social-links {
   position: absolute;
   top: 30px;
