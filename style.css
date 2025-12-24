@@ -18,6 +18,9 @@ body {
   color:#FF4500;
 }
 
+.social-links a:hover {
+  transform: translateY(-3px);
+}
 
 .social-links {
   position: absolute;
@@ -178,3 +181,4 @@ html, body {
   overflow: hidden; 
   height: 100%;    
 }
+
