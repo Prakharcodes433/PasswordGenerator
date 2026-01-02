@@ -1,22 +1,22 @@
 body {
-  background-color: #141d26;
+  background-color: #0f161f;
   margin: 0;
   position: relative;
   min-height: 100vh;
-  padding-bottom: 50px; 
-  user-select:none;
+  padding-bottom: 50px;
+  user-select: none;
 }
 
-.social-links #github:hover{
-  color: #FFFFFF;
+.social-links #github:hover {
+  color: #ffffff;
 }
 
-.social-links #ig:hover{
-  color: #e4405f;
+.social-links #ig:hover {
+  color: #ff4d70;
 }
 
-.social-links #reddit:hover{
-  color: #ff4500;
+.social-links #reddit:hover {
+  color: #ff5700;
 }
 
 .social-links a:hover {
@@ -34,12 +34,12 @@ body {
 
 .developer-name {
   font-family: 'Montserrat', sans-serif;
-  color: #b0b0b0; 
+  color: #d0d0d0;
   font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-right: 10px;
-  align-self: center; 
+  align-self: center;
 }
 
 .social-links .developer-name:hover {
@@ -47,188 +47,7 @@ body {
 }
 
 .social-links a {
-  color: #b0b0b0;
-  font-size: 30px; 
+  color: #d0d0d0;
+  font-size: 30px;
   text-decoration: none;
-  transition: 0.3s;
-}
-
-
-.text-container {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin-left: 50px;
-  max-width: 900px;
-}
-
-.text-container h1 {
-  font-size: clamp(35px, 8vw, 60px); 
-  font-family: Montserrat;
-  color: white;
-  margin-top: 120px;
-  margin-bottom: 0px;
-}
-
-.text-container h2 {
-  font-size: clamp(35px, 8vw, 60px);
-  font-family: Montserrat;
-  color: #37cf71;
-  margin-top: 1px;
-  margin-bottom: 0;
-}
-
-p {
-  font-family: Montserrat;
-  font-size: clamp(18px, 4vw, 25px);
-  color: #b0b0b0;
-  text-transform: capitalize;
-  margin-top: 10px;
-}
-
-button {
-  background-color: #37cf71;
-  color: white;
-  font-family: Montserrat;
-  font-size: 20px;
-  padding: 12px 25px; 
-  border: none;
-  border-radius: 5px;
-  font-weight: 500;
-  margin-top: 40px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-button:hover {
-  background-color: #2eb863;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-  transform: scale(0.98);
-}
-
-
-.password-container {
-  border-top: 1px solid #283745;
-  border-bottom: 1px solid #283745;
-  min-height: 120px;
-  margin-top: 40px;
-  visibility: hidden;
-  margin-left: 35px;
-  width: calc(100% - 70px);
-  max-width: 600px; 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 10px 0;
-}
-
-.password-container h3 {
-  font-size: 18px;
-  color: #11ed65;
-  background-color: #283745;
-  border-radius: 6px;
-  box-sizing: border-box;
-  height: 50px;
-  width: 260px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  font-family: Montserrat;
-  justify-content: center;
-  font-weight: 400;
-  margin: 10px;
-}
-
-@media (max-width: 768px) {
-  .social-links {
-    position: relative;
-    top: 20px;
-    right: 0;
-    justify-content: center;
-    margin-bottom: 40px;
-    padding: 0 20px;
-  }
-
-  .text-container {
-    margin-left: 20px;
-    align-items: center; 
-    text-align: center;
-  }
-
-  .password-container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    height: auto;
-  }
-
-  .password-container h3 {
-    width: 100%; 
-    max-width: 300px;
-  }
-}
-
-html::-webkit-scrollbar, 
-body::-webkit-scrollbar {
-  display: none !important;
-}
-html, body {
-  -ms-overflow-style: none !important;  
-  scrollbar-width: none !important; 
-  overflow: hidden; 
-  height: 100%;    
-}
-
-#snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  background-color: #37cf71;
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
-  transform: translateX(-50%);
-  font-family: 'Montserrat', sans-serif;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-#snackbar.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-@-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
-}
-
-@keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
-}
-
-@keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
-}
-
-
-
-
-
-
-
+  transition: 0
