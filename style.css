@@ -15,8 +15,8 @@ body {
   color: #e4405f;
 }
 
-.social-links #reddit:hover{
-  color: #ff6f00;
+.social-links #reddit{
+  color: #ff4500;
 }
 
 .social-links a:hover {
@@ -225,6 +225,7 @@ html, body {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
+
 
 
 
