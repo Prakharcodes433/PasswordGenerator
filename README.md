@@ -32,6 +32,6 @@ A sleek, dark-themed random password generator built with a focus on security an
 &nbsp;
 &nbsp;
 &nbsp;
- <img width="594" height="596" alt="Screenshot 2026-01-13 203153" src="https://github.com/user-attachments/assets/b5bdf97f-4fa0-43c9-9e59-b8b51f69a314" />
+<a href=""> <img width="594" height="596" alt="Screenshot 2026-01-13 203153" src="https://github.com/user-attachments/assets/b5bdf97f-4fa0-43c9-9e59-b8b51f69a314" /> </a>
  
 
