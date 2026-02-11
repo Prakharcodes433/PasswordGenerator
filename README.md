@@ -23,9 +23,6 @@ A sleek, dark-themed random password generator built with a focus on security an
 ## 👨‍💻 Developer
 **Prakhar Patel** Feel free to connect with me:
 
-* [GitHub](https://github.com/prakharcodes433)
-* [Instagram](https://instagram.com/prakharr._patel)
-* [Reddit](https://reddit.com/user/prakharpatel669)
 
 # Appearance of Zippr 
 
