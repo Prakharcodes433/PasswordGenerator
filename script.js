@@ -1,62 +1,118 @@
-const characters = [
-  'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
-  'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
-  'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-  '!', '@', '#', '$', '%', '^', '&', '*', '(', ')',
-  '-', '_', '=', '+', '[', '{', ']', '}', '\\', '|',
-  ';', ':', '\'', '"', ',', '<', '.', '>', '/', '?',
-  '`', '~', ' ',
-  '£', '€', '¥', '¢', 
-  '§', '©', '®', '™',
-  '÷', '×', '°', '±', 
-];
+const charSets = {
+  uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  lowercase: 'abcdefghijklmnopqrstuvwxyz',
+  numbers: '0123456789',
+  symbols: '!@#$%^&*()-_=+[]{};:\'",.<>?/\\|`~'
+};
 
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+const lengthSlider = document.getElementById('length');
+const lengthDisplay = document.getElementById('lengthDisplay');
+const notification = document.getElementById('notification');
 
-function generatePassword(length) {
-  let result = '';
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
 
-  for (let i = 0; i < length; i++) {
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+  });
+});
+
+lengthSlider.addEventListener('input', (e) => {
+  lengthDisplay.textContent = e.target.value;
+});
+
+function getSelectedCharacters() {
+  let characters = '';
   
+  if (document.getElementById('uppercase').checked) {
+    characters += charSets.uppercase;
+  }
+  if (document.getElementById('lowercase').checked) {
+    characters += charSets.lowercase;
+  }
+  if (document.getElementById('numbers').checked) {
+    characters += charSets.numbers;
+  }
+  if (document.getElementById('symbols').checked) {
+    characters += charSets.symbols;
+  }
+  
+  return characters || (charSets.uppercase + charSets.lowercase + charSets.numbers);
+}
+
+function generatePassword(length, characters) {
+  let result = '';
+  
+  for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * characters.length);
-   
     result += characters[randomIndex];
   }
+  
   return result;
 }
 
-function getPassword () {
-  let passcontainer = document.querySelector(".password-container");
-  passcontainer.style.visibility = "visible";
-  const myNewPassword = generatePassword(16);
- let passfield1 = document.getElementById('pass-field-1');
- passfield1.innerText = myNewPassword;
- const myNewPassword2 = generatePassword(16);
- let passfield2 = document.getElementById('pass-field-2');
- passfield2.innerText = myNewPassword2;
+function generatePasswords() {
+  const length = parseInt(document.getElementById('length').value);
+  const characters = getSelectedCharacters();
+  
+  const password1 = generatePassword(length, characters);
+  const password2 = generatePassword(length, characters);
+  
+  document.getElementById('password1').textContent = password1;
+  document.getElementById('password2').textContent = password2;
 }
 
-
-function copyPassword(id) {
-  const textToCopy = document.getElementById(id).innerText;
+function copyPassword(elementId) {
+  const element = document.getElementById(elementId);
+  const text = element.textContent;
   
-
-  if (textToCopy) {
-    navigator.clipboard.writeText(textToCopy).then(() => {
-      showToast();
+  if (text && !text.includes('Click')) {
+    navigator.clipboard.writeText(text).then(() => {
+      showNotification();
+    }).catch(err => {
+      console.error('Failed to copy:', err);
     });
   }
 }
 
-function showToast() {
-  const toast = document.getElementById("snackbar");
-  toast.className = "show";
+function showNotification() {
+  notification.classList.add('show');
   
-
-  setTimeout(function() {
-    toast.className = toast.className.replace("show", "");
-  }, 3000);
+  setTimeout(() => {
+    notification.classList.remove('show');
+  }, 2500);
 }
 
+function scrollTo(sectionId) {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'g') {
+    e.preventDefault();
+    generatePasswords();
+  }
+  
+  if ((e.ctrlKey || e.metaKey) && e.key === '1') {
+    e.preventDefault();
+    copyPassword('password1');
+  }
+  
+  if ((e.ctrlKey || e.metaKey) && e.key === '2') {
+    e.preventDefault();
+    copyPassword('password2');
+  }
+});
+
+window.addEventListener('load', () => {
+  generatePasswords();
+});
