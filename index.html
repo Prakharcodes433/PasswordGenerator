@@ -3,75 +3,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="description" content="Zippr - A sleek, dark-themed random password generator built for security and speed.">
-  <meta name="keywords" content="Password Generator, Security, Dark Mode, Web App, JavaScript">
+  <meta name="description" content="Zippr - Generate secure passwords instantly with a clean, modern interface. Fast, simple, and reliable. No data stored.">
+  <meta name="keywords" content="Password Generator, Security, Safe, Free Tool, Random Password">
   <meta name="author" content="Prakhar Patel">
   
-  <meta property="og:title" content="Zippr | Secure Password Generator">
-  <meta property="og:description" content="Generate high-security passwords instantly with a minimalist, professional interface.">
+  <meta property="og:title" content="Zippr - Secure Password Generator">
+  <meta property="og:description" content="Create strong, random passwords in seconds. Your device, your privacy, completely secure.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://zippr.vercel.app/">
-  <meta property="og:image" content="https://zippr.vercel.app/og-image.png">
-
+  <link rel="icon" href="Zippr3.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
- <link rel="icon" type="image/png" href="zippr2.png">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <title>Zippr</title>
 </head>
 <body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-shield"></i>
+        <span>Zippr</span>
+      </div>
+      
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-  <div class="social-links">
-    <span class="developer-name">Developed by Prakhar Patel</span> 
-    <a href="https://github.com/prakharr3act" target="_blank"><i class="fa-brands fa-github" id="github"></i></a>
-    <a href="https://www.instagram.com/prakharr._patel/" target="_blank"><i class="fa-brands fa-instagram" id="ig"></i></a>
-    <a href="https://www.reddit.com/user/PrakharPatel669/" target="_blank"><i class="fa-brands fa-reddit-alien" id="reddit"></i></a>
-  </div>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#generator" class="nav-link">Generator</a></li>
+        <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li class="nav-item"><a href="docs.html" class="nav-link">Docs</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <div class="text-container">
-    <h1>Generate a</h1>
-    <h2>secure password</h2>
-    <p>never use an insecure password </p>
-    <button onclick="getPassword()">Generate Passwords</button>
-  </div>
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Strong Passwords, Made Simple</h1>
+      <p>Create secure, random passwords instantly. No data stored, no tracking, completely free.</p>
+      <button class="btn btn-primary" onclick="scrollTo('generator')">
+        <i class="fas fa-key"></i> <a href="#generator"> Generate Now </a>
+      </button>
+    </div>
+  </section>
 
-    <div id="snackbar">Password copied to clipboard!</div>
+  <section id="generator" class="generator">
+    <div class="container">
+      <h2>Password Generator</h2>
+      <p class="subtitle">Customize your password to meet any requirement</p>
 
-<div class="password-container">
-  <h3 id="pass-field-1" onclick="copyPassword('pass-field-1')" style="cursor: pointer;"></h3>
-  <h3 id="pass-field-2" onclick="copyPassword('pass-field-2')" style="cursor: pointer;"></h3>
-</div>
+      <div class="controls">
+        <div class="control-group">
+          <label for="length">Password Length: <span id="lengthDisplay">16</span> characters</label>
+          <input type="range" id="length" min="8" max="64" value="16" class="slider">
+        </div>
 
+        <div class="options">
+          <label class="checkbox">
+            <input type="checkbox" id="uppercase" checked>
+            <span>Uppercase Letters (A-Z)</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="lowercase" checked>
+            <span>Lowercase Letters (a-z)</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="numbers" checked>
+            <span>Numbers (0-9)</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="symbols" checked>
+            <span>Special Characters</span>
+          </label>
+        </div>
 
-  <div class="password-container">
-    <h3 id="pass-field-1"></h3>
-    <h3 id="pass-field-2"></h3>
-  </div>
+        <button class="btn btn-primary btn-large" onclick="generatePasswords()">
+          <i class="fas fa-wand-magic-sparkles"></i> Generate Passwords
+        </button>
+      </div>
 
+      <div class="passwords">
+        <div class="password-box">
+          <span class="label">Password 1</span>
+          <div class="password-display" id="password1" onclick="copyPassword('password1')">
+            Click Generate
+          </div>
+          <button class="btn btn-small" onclick="copyPassword('password1')">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+        </div>
+
+        <div class="password-box">
+          <span class="label">Password 2</span>
+          <div class="password-display" id="password2" onclick="copyPassword('password2')">
+            Click Generate
+          </div>
+          <button class="btn btn-small" onclick="copyPassword('password2')">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="notification" class="notification">
+      <i class="fas fa-check-circle"></i>
+      <span>Copied to clipboard!</span>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="features">
+    <div class="container">
+      <h2>Why Use Zippr?</h2>
+      
+      <div class="features-grid">
+        <div class="feature">
+          <i class="fas fa-bolt"></i>
+          <h3>Instant Generation</h3>
+          <p>Create passwords in milliseconds with no delay or waiting.</p>
+        </div>
+
+        <div class="feature">
+          <i class="fas fa-lock"></i>
+          <h3>Secure & Random</h3>
+          <p>Every password is cryptographically random with high entropy security.</p>
+        </div>
+
+        <div class="feature">
+       <i class="fa-solid fa-cloud"></i>
+          <h3>Zero Server Tracking</h3>
+          <p>Passwords are generated on your device. Nothing is sent anywhere.</p>
+        </div>
+
+        <div class="feature">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Works Everywhere</h3>
+          <p>Perfectly responsive design for phones, tablets, and desktops.</p>
+        </div>
+
+        <div class="feature">
+          <i class="fas fa-sliders-h"></i>
+          <h3>Full Customization</h3>
+          <p>Control length and character types to match any requirement.</p>
+        </div>
+
+        <div class="feature">
+          <i class="fas fa-infinity"></i>
+          <h3>Unlimited Passwords</h3>
+          <p>Generate as many passwords as needed, whenever you need them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Zippr</h2>
+      <p>Zippr is a straightforward password generator designed for security without complexity. Strong security doesn't require advanced technical knowledge.</p>
+      <p>Whether protecting personal accounts or managing business systems, Zippr provides reliable tools. No tracking, no analytics, completely transparent and secure.</p>
+      <p><strong>Your security is our priority. Your privacy is guaranteed.</strong></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-main">
+        <div class="footer-header">
+          <i class="fas fa-shield"></i>
+          <h3>Zippr</h3>
+        </div>
+        <p class="footer-description">Secure password generation on your device. Simple, private, fast—zero tracking. </p>
+        <div class="footer-links-inline">
+          <a href="#generator">Generator</a>
+          <a href="docs.html">Docs</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+
+      <div class="footer-social-group">
+        <span class="social-label">Connect</span>
+        <div class="footer-social-icons">
+          <a href="https://github.com/prakharr3act" target="_blank" title="GitHub" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.instagram.com/prakharr._patel/" target="_blank" title="Instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.reddit.com/user/PrakharPatel669/" target="_blank" title="Reddit" aria-label="Reddit">
+            <i class="fab fa-reddit-alien"></i>
+          </a>
+          <a href="https://prakharr3act.github.io/Zippr/" target="_blank" title="Website" aria-label="Website">
+            <i class="fas fa-globe"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Version: 1.0.0-R3-Core</p>
+      <p>&copy; 2026 Zippr. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
-
-  <!-- Vercel Speed Insights -->
-  <script>
-    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
